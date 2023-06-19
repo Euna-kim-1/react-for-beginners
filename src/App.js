@@ -1,20 +1,22 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./routes/Home";
 import Detail from "./routes/Detail";
-
-
+import Navigation from "./components/Navigation";
+import "../src/App.css";
 function App() {
-  return (  
-  <BrowserRouter>
-  <Routes>
-  {/* <Route path={process.env.PUBLIC_URL + "/"} element={<Home/>} /> */}
-  <Route path="/" element={<Home/>} />
-  <Route path="/movie/:id" element={<Detail />} />
-  </Routes>
-  </BrowserRouter>
- 
+  return (
+    <BrowserRouter>
+      <Navigation />
+      <Routes>
+        <Route path="/react-for-beginners" exact={true} element={<Home />} />
+        <Route
+          path="/react-for-beginners/movie-detail/:id"
+          element={<Detail />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
-  }
+}
 
 export default App;
